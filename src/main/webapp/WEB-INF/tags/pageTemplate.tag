@@ -1,9 +1,3 @@
-<%-- 
-    Document   : pageTemplate
-    Created on : Oct 20, 2021, 8:54:28 AM
-    Author     : justi
---%>
-
 <%@tag description="put the tag description here" pageEncoding="UTF-8"%>
 
 <%-- The list of normal or fragment attributes can be specified here: --%>
@@ -13,10 +7,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>$(pageTitle)</title>
+        <title>${pageTitle}</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     </head>
     <body>
-        <jsp:doBody/>
+        <jsp:doBody />
     </body>
 </html>
