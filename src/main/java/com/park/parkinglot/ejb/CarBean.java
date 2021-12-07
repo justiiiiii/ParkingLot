@@ -88,7 +88,7 @@ public class CarBean {
         user.getCars().add(car);
         car.setUser(user);
     }
-
+    
     public void deleteCarsByIds(Collection<Integer> ids) {
         LOG.info("deleteCarsById");
         for(Integer id : ids){
