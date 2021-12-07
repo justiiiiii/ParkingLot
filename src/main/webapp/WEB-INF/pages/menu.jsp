@@ -1,3 +1,4 @@
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <nav class="navbar navbar-expand-md navbar-black bg-dark">
     <div class="container-fluid">
       <a class="navbar-brand" href="${pageContext.request.contextPath}">Parking Lot</a>
@@ -14,7 +15,7 @@
                 
             <c:if test="${pageContext.request.isUserInRole('ClientRole')}">
                 <li class="nav-item ${activePage eq 'Users' ? 'active' : ''}">
-              <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/Users">Users</a>
+                    <a class="nav-link active" aria-current="page" href="${pageContext.request.contextPath}/Users">Users</a>
                 </li>  
             </c:if> 
                 
@@ -33,7 +34,7 @@
         <ul class="navbar-nav ml-auto">
             <li class="nav-item">
                 <c:choose>
-                    <c:when>
+                    <c:when test="${pageContext.request.getRemoteUser() == null}">
                         <a class="nav-link" href="${pageContext.request.contextPath}/Login">Login</a>
                     </c:when>
                     <c:otherwise>

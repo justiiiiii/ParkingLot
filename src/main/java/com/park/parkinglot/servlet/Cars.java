@@ -14,6 +14,7 @@ import javax.annotation.security.DeclareRoles;
 import javax.inject.Inject;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.HttpConstraint;
+import javax.servlet.annotation.HttpMethodConstraint;
 import javax.servlet.annotation.ServletSecurity;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -24,15 +25,15 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author justi
  */
-@DeclareRoles({"Admin Role","Client Role"})
+@DeclareRoles({"AdminRole","ClientRole"})
 @ServletSecurity(
         value = @HttpConstraint(
-                rolesAllowed = {"Admin Role"}
+                rolesAllowed = {"AdminRole"}
         )
-//        ,
-//        httpMethodConstraints = {
-//            @HttpMethodConstraint(value="POST", rolesAllowed = {"AdminRole"})
-//        }
+        ,
+        httpMethodConstraints = {
+            @HttpMethodConstraint(value="POST", rolesAllowed = {"AdminRole"})
+        }
 )
 @WebServlet(name = "Cars", urlPatterns = {"/Cars"})
 public class Cars extends HttpServlet {
