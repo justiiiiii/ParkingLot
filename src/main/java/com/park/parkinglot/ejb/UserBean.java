@@ -29,6 +29,16 @@ public class UserBean {
 
     private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
 
+    public void createUser(String username, String email, String passwordSha256, String position){
+        User user = new User();
+        user.setUsername(username);
+        user.setEmail(email);
+        user.setPassword(passwordSha256);
+        user.setPosition(position);
+        
+        em.persist(user);
+    }
+    
    public List<UserDetails> getAllUsers(){
         LOG.info("getAllUsers");
         try {
@@ -51,5 +61,6 @@ public class UserBean {
         }
         return detailsList;
     }
+    
     
 }

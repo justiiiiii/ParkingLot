@@ -4,42 +4,51 @@
 <!DOCTYPE html>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<t:pageTemplate pageTitle="Add Car">
-    <h1>Cars</h1>
+<t:pageTemplate pageTitle="Add User">
+    <h1>Add User</h1>
     <body>
-        <form class="needs-validation" novalidate method="post" action="${pageContext.request.contextPath}/Cars/Create">
+        <form class="needs-validation" novalidate method="post" action="${pageContext.request.contextPath}/Users/Create">
             
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="licensePlate">License Plate</label>
-                    <input type="text" class="form-control" id="license_plate" name="license_plate" placeholder="" value="" required="">
+                    <label for="username">Username</label>
+                    <input type="text" class="form-control" id="username" name="username" placeholder="" value="" required="">
                     <div class="invalid-feedback">
-                        License Plate is required
+                        Username is required
                     </div>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="parkingSpot">Parking Spot</label>
-                    <input type="text" class="form-control" id="parking_spot" name="parking_spot" placeholder="" value="" required="">
+                    <label for="email">Email</label>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="" value="" required="">
                     <div class="invalid-feedback">
-                        Parking Spot is required
+                        Email is required
                     </div>
                 </div>
             </div>
             
             <div class="row">
                 <div class="col-md-6 mb-3">
-                    <label for="owner">Owner</label>
-                    <select class="custom-select d-block w-100" id="owner_id" name="owner_id" required>
-                        <option value="">Choose...</option>
-                        <c:forEach var="user" items="${users}" varStatus="status">
-                            <option value="${user.id}">${user.username}</option>
-                        </c:forEach>
-                </select>
+                    <label for="password">Password</label>
+                    <input type="password" class="form-control" id="password" name="password" placeholder="" value="" required="">                   
                     <div class="invalid-feedback">
-                        Owner is required
+                        Password is required
+                    </div>
+                </div>
+            </div>
+            
+            <div class="row">
+                <div class="col-md-6 mb-3">
+                    <label for="position">Position</label>
+                    <select class="custom-select d-block w-100" id="position" name="position" required>
+                        <option value="">Choose..</option>
+                        <option value="ADMINISTRATOR">Administrator</option>
+                        <option value="CLIENT">Client</option>
+                    </select>
+                    <div class="invalid-feedback">
+                        Please select a position
                     </div>
                 </div>
             </div>
