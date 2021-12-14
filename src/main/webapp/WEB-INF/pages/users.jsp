@@ -4,10 +4,10 @@
 <t:pageTemplate pageTitle="Users">
     <h1>Users</h1>
     <form method="POST" action="${pageContext.request.contextPath}/Users">
-        <c:if test="${pageContext.request.isUserInRole('AdminRole')}">
+        <u:if test="${pageContext.request.isUserInRole('AdminRole')}">
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/Users/Create" role="button">Add User</a>
             <button class="btn btn-secondary" type="submit">Invoice</button>
-        </c:if>
+        </u:if>
         <u:forEach var="user" items="${users}" varStatus="status"> 
             <div class="row">
                 <div class="col-md">
@@ -27,7 +27,7 @@
     </form>
             
     Invoice for:
-    <c:forEach var="username" items="${invoices}" varStatus="status">
+    <u:forEach var="username" items="${invoices}" varStatus="status">
         ${username}
-    </c:forEach>
+    </u:forEach>
 </t:pageTemplate>
