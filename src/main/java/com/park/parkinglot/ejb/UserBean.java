@@ -7,6 +7,7 @@ package com.park.parkinglot.ejb;
 import com.park.parkinglot.common.UserDetails;
 import com.park.parkinglot.entity.User;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -28,7 +29,15 @@ public class UserBean {
     private EntityManager em;
 
     private static final Logger LOG = Logger.getLogger(UserBean.class.getName());
-
+    
+    public Collection<String> findUsernames(Collection<Integer>userIds){
+        LOG.info("findUsernames");
+        List<String> usernames = (List<String>) em.createQuery("SELECT u.username FROM User u WHERE u.id IN ?1")
+                                    .setParameter(1,userIds)
+                                    .getResultList();
+        return usernames;
+    }
+    
     public void createUser(String username, String email, String passwordSha256, String position){
         User user = new User();
         user.setUsername(username);

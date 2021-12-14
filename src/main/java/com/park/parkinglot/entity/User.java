@@ -6,6 +6,7 @@ package com.park.parkinglot.entity;
 
 import java.io.Serializable;
 import java.util.Collection;
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -29,6 +30,8 @@ public class User implements Serializable {
     private String email;
     private String password;
     private String position;
+    
+    @JsonbTransient
     @OneToMany(mappedBy = "user")
     private Collection<Car> cars;
     public Integer getId() {
